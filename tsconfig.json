@@ -1,0 +1,35 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "module": "es6",
+        "target": "es6",
+        "moduleResolution": "node",
+        "strict": true,
+        "sourceMap": true,
+        "allowJs": false,
+        "allowSyntheticDefaultImports": true,
+        "alwaysStrict": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "strictPropertyInitialization": true,
+        "strictFunctionTypes": true,
+        "noImplicitThis": true,
+        "strictBindCallApply": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "noUncheckedIndexedAccess": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        
+        // Base Strict Checks
+        "noImplicitUseStrict": false,
+        "suppressExcessPropertyErrors": false,
+        "suppressImplicitAnyIndexErrors": false,
+        "noStrictGenericChecks": false,
+    },
+    "files": [
+        "node_modules/gsap/types/index.d.ts"
+    ],
+    "include": [
+        "./src"
+    ]
+}

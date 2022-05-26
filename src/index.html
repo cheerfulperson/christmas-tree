@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
+        <title>Christmas tree</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/Flip.min.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <nav class="nav-section">
+                <ul class="nav-section__item">
+                    <li class="nav-section__item-list">
+                        <a class="nav-section__item-list-link" href="#homePage">
+                            <img class="nav-section__item-list-img" src="./assets/svg/tree.svg" alt="Tree" />
+                        </a>
+                    </li>
+                    <li class="nav-section__item-list title-link" data-link="toysPage">
+                        <a class="nav-section__item-list-link" href="#toysPage">toys</a>
+                    </li>
+                    <li class="nav-section__item-list title-link" data-link="treePage">
+                        <a class="nav-section__item-list-link" href="#treePage">christmas tree</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <article class="right-aside">
+                <form class="search-form">
+                    <input
+                        class="search-form__input"
+                        type="search"
+                        placeholder="Search..."
+                        autocomplete="off"
+                        id="searchInput"
+                    />
+                    <button class="search-form__button">
+                        <img src="./assets/svg/search.svg" alt="Search image" />
+                    </button>
+                </form>
+                <article class="favorites-toys">
+                    <span class="favorites-toys__data"></span>
+                </article>
+            </article>
+        </header>
+
+        <main>
+            <section id="homePage" class="home-content">
+                <article class="home-content__title">
+                    <h1>Help grandma decorate the Christmas tree</h1>
+                </article>
+                <a class="home-content__button" href="#treePage">Start</a>
+            </section>
+
+            <section id="toysPage" class="toys-content main__item-hide">
+                <aside class="toys-content__menu">
+                    <article class="toys-content__menu__item toys-content__menu__item-sort">
+                        <h2>Sort</h2>
+                        <select name="sort-selection" id="sortSelectionForm" class="toys-content__menu__item__select">
+                            <option value="default">Default</option>
+                            <option value="a-z">By name from "a" to "z"</option>
+                            <option value="z-a">By name from "z" to "a"</option>
+                            <option value="0-2">By year from "0" to "2021"</option>
+                            <option value="2-0">By year from "2021" to "0"</option>
+                        </select>
+                    </article>
+
+                    <article class="toys-content__menu__item">
+                        <div class="toys-content__menu__item-rang">
+                            <h2>Number of copies</h2>
+                            <div class="toys-content__menu__item-slider" id="numberOfCopies"></div>
+                        </div>
+                        <div class="toys-content__menu__item-rang">
+                            <h2>Acquisition year</h2>
+                            <div class="toys-content__menu__item-slider" id="toysAcquisitionYear"></div>
+                        </div>
+                    </article>
+
+                    <article class="toys-content__menu__item toys-content__menu__item-shape">
+                        <h2>Shape</h2>
+
+                        <div class="toys-content__menu__item-buttons">
+                            <label class="toys-content__menu__item-button">
+                                <input type="checkbox" data-shape="bell" />
+                                <img src="./assets/svg/bell.svg" alt="bell" />
+                                <span>Bell</span>
+                            </label>
+                            <label class="toys-content__menu__item-button">
+                                <input type="checkbox" data-shape="ball" />
+                                <img src="./assets/svg/ball.svg" alt="ball" />
+                                <span>Ball</span>
+                            </label>
+                            <label class="toys-content__menu__item-button">
+                                <input type="checkbox" data-shape="cone" />
+                                <img src="./assets/svg/cone.svg" alt="cone" />
+                                <span>Cone</span>
+                            </label>
+                            <label class="toys-content__menu__item-button">
+                                <input type="checkbox" data-shape="snowflake" />
+                                <img src="./assets/svg/snowflake.svg" alt="snowflake" />
+                                <span>Snowflake</span>
+                            </label>
+                            <label class="toys-content__menu__item-button">
+                                <input type="checkbox" data-shape="figure" />
+                                <img src="./assets/svg/toy.svg" alt="figure" />
+                                <span>Figure</span>
+                            </label>
+                        </div>
+                    </article>
+
+                    <article class="toys-content__menu__item toys-content__menu__item-color">
+                        <h2>Color</h2>
+                        <div class="toys-content__menu__color-checkboxes">
+                            <label class="toys-content__menu__color-checkbox">
+                                <input type="checkbox" data-color="white" />
+                                <span class="checkmark checkmark-1"></span>
+                            </label>
+                            <label class="toys-content__menu__color-checkbox">
+                                <input type="checkbox" data-color="yellow" />
+                                <span class="checkmark checkmark-2"></span>
+                            </label>
+                            <label class="toys-content__menu__color-checkbox">
+                                <input type="checkbox" data-color="red" />
+                                <span class="checkmark checkmark-3"></span>
+                            </label>
+                            <label class="toys-content__menu__color-checkbox">
+                                <input type="checkbox" data-color="blue" />
+                                <span class="checkmark checkmark-4"></span>
+                            </label>
+                            <label class="toys-content__menu__color-checkbox">
+                                <input type="checkbox" data-color="green" />
+                                <span class="checkmark checkmark-5"></span>
+                            </label>
+                        </div>
+                    </article>
+
+                    <article class="toys-content__menu__item toys-content__menu__item-size">
+                        <h2>Size</h2>
+                        <div class="toys-content__menu__size-checkboxes">
+                            <label class="toys-content__menu__size-checkbox">
+                                <input type="checkbox" data-size="large" />
+                                <span class="checkmark"></span>
+                                <span class="label-description">Large</span>
+                            </label>
+                            <label class="toys-content__menu__size-checkbox">
+                                <input type="checkbox" data-size="medium" />
+                                <span class="checkmark"></span>
+                                <span class="label-description">Medium</span>
+                            </label>
+                            <label class="toys-content__menu__size-checkbox">
+                                <input type="checkbox" data-size="small" />
+                                <span class="checkmark"></span>
+                                <span class="label-description">Small</span>
+                            </label>
+                        </div>
+
+                        <div class="toys-content__menu__size-checkboxes toys-content__menu-favorite">
+                            <label class="toys-content__menu__size-checkbox">
+                                <input id="isLiked" type="checkbox" data-favorite="false" />
+                                <span class="checkmark"></span>
+                                <span class="label-description">Only favorite</span>
+                            </label>
+                        </div>
+                    </article>
+
+                    <article class="toys-content__menu__item">
+                        <button id="clearSelection" class="menu__item__button">Reset filters</button>
+                        <button id="clearSettings" class="menu__item__button">Clear settings</button>
+                        <button id="openToysAddWindow" class="menu__item__button menu__item__button-add">
+                            Add new
+                        </button>
+                    </article>
+                </aside>
+
+                <article class="toys-content__list"></article>
+
+                <article class="toys-content__window main__item-hide">
+                    <div class="toys-content__x">
+                        <button class="form-zone__button form-zone__button-x">X</button>
+                    </div>
+                    <div class="toys-content__drop-zone">
+                        <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                        <input
+                            type="file"
+                            name="myFile"
+                            accept="image/png, image/jpeg, image/jpg"
+                            class="drop-zone__input"
+                        />
+                    </div>
+                    <div class="toys-content__form-zone">
+                        <article class="form-zone__item">
+                            <label for="formZoneName" class="form-zone__label">Name:</label>
+                            <input value="Some Bell" type="text" id="formZoneName" class="form-zone__input" />
+                        </article>
+                        <article class="form-zone__item">
+                            <label for="formZoneCount" class="form-zone__label">Count:</label>
+                            <input
+                                type="number"
+                                min="1"
+                                max="12"
+                                step="1"
+                                id="formZoneCount"
+                                value="2"
+                                class="form-zone__input"
+                            />
+                        </article>
+                        <article class="form-zone__item">
+                            <label for="formZoneYear" class="form-zone__label">Year:</label>
+                            <input
+                                type="number"
+                                min="1940"
+                                max="2021"
+                                step="1"
+                                value="2020"
+                                id="formZoneYear"
+                                class="form-zone__input"
+                            />
+                        </article>
+                        <article class="form-zone__item">
+                            <label for="formZoneShape" class="form-zone__label">Shape:</label>
+                            <select type="text" id="formZoneShape" class="form-zone__input">
+                                <option value="bell">Bell</option>
+                                <option value="ball">Ball</option>
+                                <option value="cone">Cone</option>
+                                <option value="snowflake">Snowflake</option>
+                                <option value="figure">Figure</option>
+                            </select>
+                        </article>
+                        <article class="form-zone__item">
+                            <label for="formZoneColor" class="form-zone__label">Color:</label>
+                            <select type="text" id="formZoneColor" class="form-zone__input">
+                                <option value="white">White</option>
+                                <option value="yellow">Yellow</option>
+                                <option value="red">Red</option>
+                                <option value="blue">Blue</option>
+                                <option value="green">Green</option>
+                            </select>
+                        </article>
+                        <article class="form-zone__item">
+                            <label for="formZoneSize" class="form-zone__label">Size:</label>
+                            <select type="text" id="formZoneSize" class="form-zone__input">
+                                <option value="large">Large</option>
+                                <option value="medium">Medium</option>
+                                <option value="small">Small</option>
+                            </select>
+                        </article>
+                    </div>
+                    <button id="uploadToyBtn" class="form-zone__button form-zone__button-add">Add</button>
+                </article>
+            </section>
+
+            <section id="treePage" class="tree main__item-hide">
+                <aside class="tree__menu">
+                    <article class="tree__menu-item tree__menu-item-buttons">
+                        <button id="audioBtn" class="tree__menu-button" data-about="Audio">
+                            <img src="./assets/svg/mute.svg" alt="audio" />
+                        </button>
+                        <button id="snowBtn" class="tree__menu-button" data-about="Snow">
+                            <img src="./assets/svg/snow.svg" alt="snowflake" />
+                        </button>
+                        <button id="savePictureBtn" class="tree__menu-button" data-about="Download">
+                            <img src="./assets/svg/save.svg" alt="cleare store" />
+                        </button>
+                        <button id="addPageBtn" class="tree__menu-button" data-about="Save tree">
+                            <img src="./assets/svg/plus.svg" alt="plus" />
+                        </button>
+                        <button id="clearStoreBtn" class="tree__menu-button" data-about="Cleare store">
+                            <img src="./assets/svg/delete.svg" alt="cleare store" />
+                        </button>
+                    </article>
+                    <article class="tree__menu-item">
+                        <h3 class="menu-item__title">tree</h3>
+                        <div id="treesBoxContent" class="tree__items-boxes"></div>
+                    </article>
+                    <article class="tree__menu-item">
+                        <h3 class="menu-item__title">background</h3>
+                        <div id="bgContentBox" class="tree__items-boxes"></div>
+                    </article>
+                    <article class="tree__menu-item">
+                        <h3 class="menu-item__title">Garland</h3>
+                        <div class="tree__items-boxes tree__items-boxes-garland">
+                            <input class="tree__item-input-radio" id="gradientG" type="radio" name="garland" />
+                            <input class="tree__item-input-radio" id="redG" type="radio" name="garland" />
+                            <input class="tree__item-input-radio" id="blueG" type="radio" name="garland" />
+                            <input class="tree__item-input-radio" id="yellowG" type="radio" name="garland" />
+                            <input class="tree__item-input-radio" id="greenG" type="radio" name="garland" />
+                            <label class="tree__item-label" for="gradientG"></label>
+                            <label class="tree__item-label" for="redG"></label>
+                            <label class="tree__item-label" for="blueG"></label>
+                            <label class="tree__item-label" for="yellowG"></label>
+                            <label class="tree__item-label" for="greenG"></label>
+                            <label class="tree__item-checkbox">
+                                <input id="garlandKey" type="checkbox" />
+                                <span class="tree__item-switch">
+                                    <span class="tree__item-feature" data-label-on="On" data-label-off="Off"></span>
+                                </span>
+                            </label>
+                        </div>
+                    </article>
+                </aside>
+                <article class="tree__content">
+                    <article class="snow"></article>
+                    <article class="tree__container" data-background="assets/bg/1.jpg">
+                        <div class="tree__garland-container"></div>
+                        <div class="tree__toys-container"></div>
+                        <map name="tree-map">
+                            <area
+                                coords="117,695,4,632,1,597,18,583,22,502,62,401,51,364,87,308,114,225,136,179,160,118,183,89,208,48,236,9,259,0,276,1,279,14,291,17,303,40,304,61,313,77,321,102,340,122,346,142,364,168,371,193,382,215,397,245,400,260,401,288,413,310,410,323,410,330,427,351,439,365,444,380,439,397,441,422,459,462,463,487,476,548,497,565,497,588,485,596,495,616,491,647,471,659,431,676,384,687,356,699,323,713"
+                                shape="poly"
+                            />
+                        </map>
+                        <img src="assets/tree/1.png" class="tree__container-image" usemap="#tree-map" alt="tree" />
+                    </article>
+                </article>
+                <aside class="tree__menu">
+                    <article class="tree__menu-item">
+                        <h3 class="menu-item__title">toys</h3>
+                        <div id="toysContentBox" class="tree__items-boxes"></div>
+                    </article>
+
+                    <article class="tree__menu-item">
+                        <h3 class="menu-item__title">your trees</h3>
+                        <div id="savedTreesBoxes" class="tree__items-boxes tree__items-boxes-saved"></div>
+                    </article>
+                </aside>
+            </section>
+        </main>
+
+        <footer>
+            <ul class="info">
+                <li class="info__item">
+                    <span>© </span><span>2021</span>
+                    <a class="info__item-git" href="https://github.com/cheerfulperson">cheerfulperson</a>
+                </li>
+                <li class="info__item">
+                    <a href="https://rs.school/">
+                        <img class="info__item-rss-logo" src="./assets/svg/rss.svg" alt="Rss logo"
+                    /></a>
+                </li>
+            </ul>
+        </footer>
+
+        <template id="toyContent">
+            <article class="toys-content__list__toy" data-toy-num="">
+                <h3 class="toys-content__list__toy__name" data-toy-name=""></h3>
+                <img class="toys-content__list__toy__img" src="" alt="" />
+                <ul class="toys-content__list__toy__description">
+                    <li class="toy__description__item" data-toy-count="">
+                        <p>Amount: <span class="data"></span></p>
+                    </li>
+                    <li class="toy__description__item" data-toy-year="">
+                        <p>Year: <span class="data"></span></p>
+                    </li>
+                    <li class="toy__description__item" data-toy-shape="">
+                        <p>Shape: <span class="data"></span></p>
+                    </li>
+                    <li class="toy__description__item" data-toy-color="">
+                        <p>Color: <span class="data"></span></p>
+                    </li>
+                    <li class="toy__description__item" data-toy-size="">
+                        <p>Size: <span class="data"></span></p>
+                    </li>
+                    <li class="toy__description__item" data-toy-favorite="">
+                        <p>Favorite: <span class="data"></span></p>
+                    </li>
+                </ul>
+                <div class="toys-content__list__toy__favorite">
+                    <button class="toy__favorite__button"></button>
+                </div>
+            </article>
+        </template>
+
+        <template id="message">
+            <article class="modal-window">
+                <p class="modal-window__text">Sorry, no matches found.</p>
+            </article>
+        </template>
+
+        <template id="notification">
+            <article class="notification-window">
+                <p class="notification-window__text">Sorry, all slots are full.</p>
+            </article>
+        </template>
+
+        <template id="toysBox">
+            <div class="tree__item-box tree__item-box-toy" data-amount="">
+                <img src="" alt="" draggable="true" />
+            </div>
+        </template>
+
+        <template id="savedTree">
+            <div id="" class="tree__item-box">
+                <div class="tree__saved-toys"></div>
+                <img class="tree__saved-tree" src="" alt="tree" />
+            </div>
+        </template>
+
+        <template id="screenSize">
+            <article data-article="screenWindow" class="article">
+                <h2 class="article__text">
+                    Sorry, your screen is not suitable for the application to work correctly!
+                </h2>
+            </article>
+        </template>
+    </body>
+</html>
