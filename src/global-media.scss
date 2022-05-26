@@ -1,0 +1,149 @@
+$header-height: 80px;
+@media screen and (max-width: 1024px) {
+    html {
+        font-size: 20px;
+    }
+
+    header {
+        padding: 0 30px 0 30px;
+
+        .nav-section {
+
+            .nav-section__item {
+
+                .nav-section__item-list {
+                    margin: 0 10px 0 10px;
+
+                    .nav-section__item-list-img {
+                        max-height: calc($header-height - 25px);
+                    }
+                }
+            }
+        }
+
+        .search-form {
+
+            #searchInput {
+                min-width: 0;
+                width: 280px;
+            }
+
+        }
+    }
+
+    main {
+    
+        .modal-window {
+            font-size: 1.8rem;
+        }
+
+        .home-content {
+
+            .home-content__title {
+                height: 240px;
+                max-width: 500px;
+            }
+    
+        }
+    
+        .toys-content {
+    
+            .toys-content__menu {
+                border-radius: 0;
+                border: none;
+                width: 35%;
+                height: 100%;
+                padding: 15px;
+    
+            }
+
+            .toys-content__list {
+                width: 65%;
+                height: 100%;
+                border: none;
+                border-radius: 0;
+                padding: 5px;
+
+                &::-webkit-scrollbar {
+                    width: 10px;
+                }
+    
+                .toys-content__list__toy {
+                    grid-template-rows: 20px auto;
+                    border-radius: 10px;
+                    width: 200px;
+                    height: 200px;
+    
+                    .toys-content__list__toy__name {
+                        height: 20px;
+                        font-size: 0.9em;
+                        margin: 0;
+                    }
+    
+                    .toys-content__list__toy__img {
+                        width: 100%;
+                        margin: 30px 0 0 10px;
+    
+                    }
+    
+                    .toys-content__list__toy__description {
+                        padding: 0;
+                        margin: 20px 0 0 25px;
+    
+                        .toy__description__item {
+                            font-size: 0.7em;
+    
+                            p {
+                                margin: 3px 0 0 0;
+                            }
+                        }
+                    }
+    
+                    .toys-content__list__toy__favorite {
+                        width: 80px;
+                        height: 40px;
+                        bottom: 30px;
+                        left: -7px;
+                    }
+    
+                    .toy__favorite__button {
+                        margin: 5px 0 0 22px;
+                    } 
+
+                }
+            }
+        }
+        .tree {
+
+            .tree__menu { 
+                align-items: center;
+                width: 20%;
+                &::-webkit-scrollbar {
+                    background: rgba(255, 255, 255, 0.411);
+                    width: 8px;
+                }
+                .tree__menu-item {
+                    .tree__menu-button {
+                        display: block;
+                        margin: 30px auto 0 auto;
+                    }
+                    .menu-item__title {
+                        text-align: center;
+                        word-wrap: break-word;
+                    }
+                    .tree__items-boxes {
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    .tree__items-boxes-saved {
+                        justify-content: start;
+                    }
+                }
+            }
+
+            .tree__content {
+                width: 60%;
+            }
+        }
+    }
+}
